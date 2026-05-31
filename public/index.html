@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#F4F0E6">
+  <link rel="manifest" href="manifest.json">
+  <title>Lernen.de — Apprends l'allemand avec l'IA</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFD60A'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='70' text-anchor='middle' fill='%230A0A0A' font-weight='bold'%3EL%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- =========================================================
+     SCREEN 1 : Loading initial (vérification session)
+     ========================================================= -->
+<div id="screen-loading" class="container">
+  <div class="loader-page">
+    <div class="loader"></div>
+    <div class="mono text-muted">Chargement...</div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCREEN 2 : Auth (Welcome → Signup/Login)
+     ========================================================= -->
+<div id="screen-auth" class="container hidden">
+  <div class="header">
+    <div class="logo">lernen<span class="dot">.</span><span class="ext">de</span></div>
+  </div>
+
+  <div style="text-align: center; padding: 2rem 1rem;">
+    <div style="font-family: var(--font-serif); font-style: italic; font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem;">
+      Apprends l'allemand
+    </div>
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">avec l'<span style="color: var(--red);">IA</span></h1>
+    <p style="color: var(--muted); margin-bottom: 2rem; font-weight: 500;">
+      Cours sur-mesure · Examens personnalisés · Préparation au Goethe
+    </p>
+
+    <button id="btn-show-signup" class="btn btn-primary btn-block mb-1">
+      Commencer gratuitement
+    </button>
+    <button id="btn-show-login" class="btn btn-block">
+      J'ai déjà un compte
+    </button>
+
+    <div style="margin-top: 3rem;">
+      <div class="streak-tag" style="margin: 0 auto;">🇩🇪 4 modules · 100% IA</div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCREEN 3 : Onboarding (nom + niveau)
+     ========================================================= -->
+<div id="screen-onboarding" class="container hidden">
+  <div class="header">
+    <div class="logo">lernen<span class="dot">.</span><span class="ext">de</span></div>
+  </div>
+
+  <div style="padding: 1rem 0;">
+    <h1 style="margin-bottom: 0.5rem;">Bienvenue !</h1>
+    <p class="text-muted mb-2" style="font-weight: 500;">
+      Aide-nous à personnaliser ton apprentissage
+    </p>
+
+    <div class="card">
+      <div class="field">
+        <label>Comment t'appelles-tu ?</label>
+        <input type="text" id="onb-name" class="input" placeholder="Ton prénom" maxlength="50">
+      </div>
+
+      <div class="field">
+        <label>Quel est ton niveau actuel d'allemand ?</label>
+        <div class="option-row" id="onb-level-options" style="grid-template-columns: 1fr 1fr;">
+          <button class="option-btn" data-level="A1">
+            <strong>A1</strong><br>
+            <span style="font-weight: 400; font-size: 0.75rem;">Débutant</span>
+          </button>
+          <button class="option-btn" data-level="A2">
+            <strong>A2</strong><br>
+            <span style="font-weight: 400; font-size: 0.75rem;">Élémentaire</span>
+          </button>
+          <button class="option-btn" data-level="B1">
+            <strong>B1</strong><br>
+            <span style="font-weight: 400; font-size: 0.75rem;">Intermédiaire</span>
+          </button>
+          <button class="option-btn" data-level="B2">
+            <strong>B2</strong><br>
+            <span style="font-weight: 400; font-size: 0.75rem;">Avancé</span>
+          </button>
+        </div>
+      </div>
+
+      <button id="btn-complete-onboarding" class="btn btn-primary btn-block mt-1" disabled>
+        Continuer →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCREEN 4 : Main App (4 menus)
+     ========================================================= -->
+<div id="screen-main" class="container hidden">
+  <div class="header">
+    <div class="logo">lernen<span class="dot">.</span><span class="ext">de</span></div>
+    <button id="btn-profile" class="back-btn" style="margin-bottom: 0;">
+      <span id="user-name-short">👤</span>
+    </button>
+  </div>
+
+  <div id="welcome-banner" style="margin-bottom: 1.5rem;">
+    <div class="serif" style="font-size: 1.5rem;">Bonjour <span id="user-name-display">!</span></div>
+    <p class="text-muted" style="font-weight: 500;">Que veux-tu faire aujourd'hui ?</p>
+  </div>
+
+  <!-- 4 menus principaux -->
+  <div class="menu-grid">
+    <div class="menu-card menu-card-cours" data-menu="cours">
+      <div class="menu-card-emoji">📖</div>
+      <div>
+        <div class="menu-card-title">Cours</div>
+        <div class="menu-card-sub">Apprends une notion</div>
+      </div>
+    </div>
+
+    <div class="menu-card menu-card-apprendre" data-menu="apprendre">
+      <div class="menu-card-emoji">🎴</div>
+      <div>
+        <div class="menu-card-title">Apprendre</div>
+        <div class="menu-card-sub">Vocab · Quiz · Conj.</div>
+      </div>
+    </div>
+
+    <div class="menu-card menu-card-examen" data-menu="examen">
+      <div class="menu-card-emoji">🎯</div>
+      <div>
+        <div class="menu-card-title">Examen IA</div>
+        <div class="menu-card-sub">Teste ton niveau</div>
+      </div>
+    </div>
+
+    <div class="menu-card menu-card-cert" data-menu="certification">
+      <div class="menu-card-emoji">🎓</div>
+      <div>
+        <div class="menu-card-title">Certification</div>
+        <div class="menu-card-sub">Goethe A1-B2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats rapides -->
+  <div id="quick-stats" class="card" style="background: var(--ink); color: var(--cream);">
+    <div class="flex-between">
+      <div>
+        <div class="mono text-muted" style="font-size: 0.7rem;">TON PROGRÈS</div>
+        <div style="font-size: 1.5rem; font-weight: 800; margin-top: 0.2rem;">
+          <span id="stat-courses">0</span> cours <span style="opacity: 0.5;">·</span>
+          <span id="stat-exams">0</span> examens
+        </div>
+      </div>
+      <div class="streak-tag" id="stat-streak">🔥 0j</div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SCREEN 5 : Module Cours (dynamique, injecté par cours.js)
+     ========================================================= -->
+<div id="screen-cours" class="container hidden">
+  <!-- Contenu injecté par cours.js -->
+</div>
+
+<!-- =========================================================
+     SCREEN : Autres modules (placeholders pour la prochaine livraison)
+     ========================================================= -->
+<div id="screen-apprendre" class="container hidden">
+  <button class="back-btn" onclick="App.showMain()">← Retour</button>
+  <h1>🎴 Apprendre</h1>
+  <div class="card mt-1">
+    <p class="text-center text-muted" style="padding: 2rem 0;">
+      <strong>Module en construction.</strong><br>
+      Disponible dans la prochaine livraison.
+    </p>
+  </div>
+</div>
+
+<div id="screen-examen" class="container hidden">
+  <button class="back-btn" onclick="App.showMain()">← Retour</button>
+  <h1>🎯 Examen IA</h1>
+  <div class="card mt-1">
+    <p class="text-center text-muted" style="padding: 2rem 0;">
+      <strong>Module en construction.</strong><br>
+      Disponible dans la prochaine livraison.
+    </p>
+  </div>
+</div>
+
+<div id="screen-certification" class="container hidden">
+  <button class="back-btn" onclick="App.showMain()">← Retour</button>
+  <h1>🎓 Préparation Certification</h1>
+  <div class="card mt-1">
+    <p class="text-center text-muted" style="padding: 2rem 0;">
+      <strong>Module en construction.</strong><br>
+      Disponible dans la prochaine livraison.
+    </p>
+  </div>
+</div>
+
+<!-- =========================================================
+     MODALS (réutilisables)
+     ========================================================= -->
+<div id="modal-container"></div>
+
+<!-- Toasts -->
+<div id="toast-container"></div>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<!-- Supabase SDK via CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Notre code -->
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="verbs-data.js"></script>
+<script src="auth.js"></script>
+<script src="cours.js"></script>
+<script src="apprendre.js"></script>
+<script src="examen.js"></script>
+<script src="certification.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

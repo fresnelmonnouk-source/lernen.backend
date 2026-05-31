@@ -1,0 +1,17 @@
+{
+  "name": "lernen-de",
+  "version": "2.0.0",
+  "description": "App d'apprentissage de l'allemand avec IA — 4 modules : Cours, Apprendre, Examen IA, Préparation Certification",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "openai": "^4.77.0",
+    "@supabase/supabase-js": "^2.46.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

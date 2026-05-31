@@ -1,0 +1,19 @@
+{
+  "name": "Lernen.de — Apprends l'allemand",
+  "short_name": "Lernen.de",
+  "description": "Apprends l'allemand avec l'IA : cours sur-mesure, examens personnalisés et préparation au Goethe-Zertifikat",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F0E6",
+  "theme_color": "#FFD60A",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%23FFD60A'/%3E%3Ctext x='256' y='360' font-family='Georgia,serif' font-size='320' text-anchor='middle' fill='%230A0A0A' font-weight='bold' font-style='italic'%3EL%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "lang": "fr-FR"
+}

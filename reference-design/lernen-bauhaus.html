@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#F4F0E6">
+<title>LERNEN — Deutsch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F4F0E6;
+  --cream-2: #ECE5D2;
+  --cream-3: #DDD3B8;
+  --ink: #0A0A0A;
+  --ink-2: #1F1F1F;
+  --paper: #FFFFFF;
+  --red: #E63946;
+  --red-dark: #C42937;
+  --yellow: #FFD60A;
+  --yellow-dark: #E8B800;
+  --blue: #1E40AF;
+  --blue-dark: #163382;
+  --green: #16A34A;
+  --green-dark: #128039;
+  --der: #1E40AF;
+  --die: #E63946;
+  --das: #16A34A;
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-sm: 2px 2px 0 var(--ink);
+  --shadow-lg: 6px 6px 0 var(--ink);
+  --shadow-xl: 8px 8px 0 var(--ink);
+  --border: 2.5px solid var(--ink);
+  --border-thin: 1.5px solid var(--ink);
+}
+
+[data-theme="dark"] {
+  --cream: #0A0A0A;
+  --cream-2: #181818;
+  --cream-3: #242424;
+  --ink: #F4F0E6;
+  --ink-2: #DDD3B8;
+  --paper: #181818;
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-sm: 2px 2px 0 var(--ink);
+  --shadow-lg: 6px 6px 0 var(--ink);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Bricolage Grotesque', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overscroll-behavior: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+body {
+  padding: 20px 16px 60px;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 40px, rgba(10,10,10,0.025) 40px, rgba(10,10,10,0.025) 41px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(10,10,10,0.025) 40px, rgba(10,10,10,0.025) 41px);
+  background-attachment: fixed;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ============ TYPO ============ */
+.display { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.03em; }
+.serif-it { font-family: 'DM Serif Display', serif; font-style: italic; font-weight: 400; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ============ HEADER ============ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 2px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.brand-mark {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.brand-mark em {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: var(--red);
+  letter-spacing: -0.02em;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--yellow);
+  border: var(--border-thin);
+  display: inline-block;
+}
+
+.header-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.streak-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: var(--yellow);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  transform: rotate(-2deg);
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.icon-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.icon-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.icon-btn svg { width: 18px; height: 18px; stroke-width: 2.5; }
+
+/* ============ HERO ============ */
+.hero {
+  background: var(--ink);
+  color: var(--cream);
+  border: var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 28px 24px 24px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--red);
+  top: -60px;
+  right: -60px;
+  z-index: 0;
+}
+
+.hero-bg-square {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--yellow);
+  bottom: 20px;
+  right: 30px;
+  transform: rotate(15deg);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: var(--border-thin);
+}
+
+.hero-number {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
+}
+
+.hero-number .slash {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--yellow);
+  font-size: 56px;
+}
+
+.hero-number .total {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  color: var(--cream-3);
+  letter-spacing: -0.03em;
+}
+
+.hero-label {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-top: 12px;
+}
+
+.hero-label .accent {
+  color: var(--yellow);
+  font-style: italic;
+}
+
+/* ============ STATS ============ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.stat {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 14px;
+  position: relative;
+}
+
+.stat.accent-red { background: var(--red); color: var(--paper); }
+.stat.accent-yellow { background: var(--yellow); color: var(--ink); }
+.stat.accent-blue { background: var(--blue); color: var(--paper); }
+
+.stat-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ============ SECTION HEADER ============ */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 0 16px;
+  padding: 0 2px;
+}
+
+.section-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-title em {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: lowercase;
+  color: var(--red);
+  letter-spacing: -0.02em;
+}
+
+.section-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* ============ ACTIONS GRID ============ */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.action-card {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 22px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.action-card:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.action-card.learn { background: var(--yellow); }
+.action-card.quiz { background: var(--red); color: var(--paper); }
+
+.action-card .action-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.action-card.quiz .action-num { color: var(--paper); }
+
+.action-card .action-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-top: 16px;
+}
+
+.action-card .action-arrow {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-card .action-arrow svg { width: 20px; height: 20px; stroke-width: 3; }
+
+/* ============ LIST ============ */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.list-item {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  font-family: inherit;
+  color: var(--ink);
+  width: 100%;
+}
+
+.list-item:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.list-item:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.list-item:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.list-item-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.list-mark {
+  width: 48px;
+  height: 48px;
+  border: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: var(--cream-2);
+}
+
+.list-mark.red { background: var(--red); color: var(--paper); }
+.list-mark.yellow { background: var(--yellow); color: var(--ink); }
+.list-mark.blue { background: var(--blue); color: var(--paper); }
+.list-mark.ink { background: var(--ink); color: var(--cream); }
+.list-mark.green { background: var(--green); color: var(--paper); }
+
+.list-text { display: flex; flex-direction: column; gap: 2px; }
+.list-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.list-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  opacity: 0.65;
+}
+
+.list-arrow {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  transition: transform 0.15s;
+}
+
+.list-item:hover .list-arrow { transform: translateX(4px); }
+
+/* ============ BADGES ============ */
+.badges {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 20px 18px;
+  margin-bottom: 24px;
+}
+
+.badges-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.badges-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.badges-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.badge {
+  aspect-ratio: 1;
+  border: var(--border);
+  background: var(--cream-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  opacity: 0.35;
+  filter: grayscale(100%);
+  transition: all 0.3s;
+  cursor: help;
+  position: relative;
+}
+
+.badge.earned {
+  opacity: 1;
+  filter: grayscale(0%);
+  background: var(--yellow);
+  animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.badge.earned:nth-child(2n) { background: var(--red); }
+.badge.earned:nth-child(3n) { background: var(--blue); }
+.badge.earned:nth-child(5n) { background: var(--green); }
+
+@keyframes badgePop {
+  0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* ============ BACK ============ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.back-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.back-btn svg { width: 14px; height: 14px; stroke-width: 3; }
+
+/* ============ LEARN VIEW ============ */
+.learn-card {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 16px;
+  animation: cardEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes cardEnter {
+  from { opacity: 0; transform: translate(-8px, 8px); }
+  to { opacity: 1; transform: translate(0,0); }
+}
+
+.learn-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--cream-2);
+  border-bottom: var(--border);
+}
+
+.learn-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  background: var(--yellow);
+}
+
+.cat-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  background: var(--ink);
+  color: var(--cream);
+  border: var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0 var(--cream);
+}
+
+.learn-content {
+  padding: 24px 22px 22px;
+  position: relative;
+}
+
+.learn-french {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.learn-german {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 22px;
+  word-break: break-word;
+}
+
+.learn-german .article {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.article-der { color: var(--der); }
+.article-die { color: var(--die); }
+.article-das { color: var(--das); }
+
+.audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  background: var(--ink);
+  color: var(--cream);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.audio-btn:hover {
+  background: var(--red);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.audio-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.audio-btn svg { width: 14px; height: 14px; stroke-width: 2.5; }
+.audio-btn.playing svg { animation: pulse 0.8s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+
+/* ============ NAV ============ */
+.learn-nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.nav-arrow {
+  padding: 14px;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+
+.nav-arrow:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.nav-arrow:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.nav-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.nav-arrow.next {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.nav-arrow svg { width: 14px; height: 14px; stroke-width: 3; }
+
+/* Progress bar */
+.progress-block {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background: var(--cream-2);
+  border: var(--border-thin);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--ink);
+  background-image: repeating-linear-gradient(45deg, var(--ink) 0, var(--ink) 4px, var(--ink-2) 4px, var(--ink-2) 8px);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============ QUIZ ============ */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quiz-progress-text, .quiz-score-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border: var(--border-thin);
+}
+
+.quiz-progress-text { background: var(--paper); color: var(--ink); }
+.quiz-score-text { background: var(--ink); color: var(--cream); }
+
+.quiz-card {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 16px;
+  animation: cardEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.quiz-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--cream-2);
+  border-bottom: var(--border);
+}
+
+.quiz-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quiz-content { padding: 22px; }
+
+.quiz-prompt {
+  text-align: center;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 2px dashed var(--ink-2);
+}
+
+.quiz-prompt-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.quiz-prompt-word {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-option {
+  padding: 16px 18px;
+  background: var(--cream);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.quiz-option:hover:not(:disabled) {
+  background: var(--yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.quiz-option:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.quiz-option:disabled { cursor: default; }
+
+.quiz-option-letter {
+  width: 32px;
+  height: 32px;
+  border: var(--border-thin);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.quiz-option.correct {
+  background: var(--green);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.quiz-option.correct .quiz-option-letter {
+  background: var(--paper);
+  color: var(--green);
+}
+
+.quiz-option.incorrect {
+  background: var(--red);
+  color: var(--paper);
+  animation: shake 0.4s;
+}
+
+.quiz-option.incorrect .quiz-option-letter {
+  background: var(--paper);
+  color: var(--red);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ============ SUPER QUIZ ============ */
+.super-input-wrap { margin-bottom: 12px; }
+
+.super-input {
+  width: 100%;
+  padding: 18px 18px;
+  background: var(--yellow);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: -0.02em;
+  transition: all 0.15s;
+  -webkit-appearance: none;
+}
+
+.super-input:focus {
+  outline: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.super-input::placeholder {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  opacity: 0.4;
+}
+
+.super-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: var(--ink);
+  color: var(--cream);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--red);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ============ FEEDBACK ============ */
+.feedback {
+  padding: 18px;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+  animation: feedbackEnter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes feedbackEnter {
+  from { opacity: 0; transform: translateY(-8px) rotate(-1deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.feedback.correct { background: var(--green); color: var(--paper); }
+.feedback.incorrect { background: var(--red); color: var(--paper); }
+
+.feedback-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.feedback-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.feedback-text strong {
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ============ TOGGLE ============ */
+.toggle-row {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.toggle-info { display: flex; flex-direction: column; gap: 2px; }
+
+.toggle-label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.toggle-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.toggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.toggle input { opacity: 0; width: 0; height: 0; }
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--cream-2);
+  border: var(--border-thin);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  background: var(--ink);
+  transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggle input:checked + .toggle-slider { background: var(--red); }
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+  background: var(--paper);
+}
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  animation: fadeIn 0.25s;
+}
+
+.modal-overlay.show { display: flex; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: var(--cream);
+  border: var(--border);
+  box-shadow: var(--shadow-xl);
+  padding: 28px 24px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: modalEnter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.85) rotate(-2deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.modal-eyebrow {
+  display: inline-block;
+  padding: 5px 10px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.modal-score {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.modal-score sup {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--red);
+  vertical-align: top;
+  margin-left: 4px;
+}
+
+.modal-detail {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 22px;
+  line-height: 1.3;
+}
+
+.modal-detail strong {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.modal-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.modal-stat {
+  padding: 14px;
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.modal-stat-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.modal-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ============ LEGEND ============ */
+.legend {
+  background: var(--paper);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 14px 18px;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border: var(--border-thin);
+}
+
+/* ============ UTIL ============ */
+.hidden { display: none !important; }
+
+.view { animation: viewEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+
+@keyframes viewEnter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Decorative corner marker */
+.corner-marker {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: var(--yellow);
+  border: var(--border-thin);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+@media (max-width: 380px) {
+  .hero-number { font-size: 72px; }
+  .learn-german { font-size: 32px; }
+  .quiz-prompt-word { font-size: 26px; }
+  .modal-score { font-size: 80px; }
+  .action-card .action-num { font-size: 48px; }
+  .section-title { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <span class="brand-mark">LERNEN<em>.de</em></span>
+    </div>
+    <div class="header-right">
+      <div class="streak-tag" id="streakPill">
+        🔥 <span id="streakValue">0</span>
+      </div>
+      <button class="icon-btn" id="themeToggle" aria-label="Theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HOME ============ -->
+  <div id="homeView" class="view">
+    
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-bg-circle"></div>
+      <div class="hero-bg-square"></div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Vocabulaire maîtrisé</span>
+        <div class="hero-number">
+          <span id="heroLearned">0</span><span class="slash">/</span><span class="total" id="heroTotal">140</span>
+        </div>
+        <div class="hero-label" id="heroSubtitle">
+          Commence ton voyage vers <span class="accent">la fluidité</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stat-grid">
+      <div class="stat accent-yellow">
+        <div class="stat-value" id="statPoints">0</div>
+        <div class="stat-label">Points</div>
+      </div>
+      <div class="stat accent-red">
+        <div class="stat-value" id="statSuccess">—</div>
+        <div class="stat-label">Réussite</div>
+      </div>
+      <div class="stat accent-blue">
+        <div class="stat-value" id="statWeek">0</div>
+        <div class="stat-label">Semaine</div>
+      </div>
+    </div>
+
+    <!-- Section -->
+    <div class="section-head">
+      <h2 class="section-title">Tes <em>actions</em></h2>
+    </div>
+    
+    <div class="actions">
+      <button class="action-card learn" onclick="navigate('learnMenu')">
+        <div class="action-num">01</div>
+        <div class="action-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="action-title">Apprendre</div>
+      </button>
+      
+      <button class="action-card quiz" onclick="navigate('quizMenu')">
+        <div class="action-num">02</div>
+        <div class="action-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="action-title">Tester</div>
+      </button>
+    </div>
+
+    <!-- Badges -->
+    <div class="badges">
+      <div class="badges-head">
+        <h3 class="badges-title">Distinctions</h3>
+        <span class="badges-count" id="badgeCount">0/6</span>
+      </div>
+      <div class="badges-grid">
+        <span class="badge" id="badge-beginner" title="Débutant • 10 mots">🌱</span>
+        <span class="badge" id="badge-learner" title="Apprenti • 30 mots">📖</span>
+        <span class="badge" id="badge-master" title="Maître • 60 mots">🎓</span>
+        <span class="badge" id="badge-perfect" title="Parfait • 10 quiz">✨</span>
+        <span class="badge" id="badge-streak" title="Assidu • 7 jours">🔥</span>
+        <span class="badge" id="badge-super" title="Virtuose • 20 Super">💎</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LEARN MENU ============ -->
+  <div id="learnMenu" class="view hidden">
+    <button class="back-btn" onclick="navigate('homeView')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Retour
+    </button>
+
+    <div class="section-head" style="margin-top: 0;">
+      <h2 class="section-title">Apprentissage</h2>
+      <span class="section-count">5 cat.</span>
+    </div>
+
+    <div class="list">
+      <button class="list-item" onclick="startLearn('noms')">
+        <div class="list-item-left">
+          <div class="list-mark red">Nm</div>
+          <div class="list-text">
+            <div class="list-title">Noms</div>
+            <div class="list-desc">30 mots · avec articles</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+      
+      <button class="list-item" onclick="startLearn('verbes')">
+        <div class="list-item-left">
+          <div class="list-mark yellow">Vb</div>
+          <div class="list-text">
+            <div class="list-title">Verbes</div>
+            <div class="list-desc">30 mots · infinitifs</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+      
+      <button class="list-item" onclick="startLearn('adjectifs')">
+        <div class="list-item-left">
+          <div class="list-mark blue">Aj</div>
+          <div class="list-text">
+            <div class="list-title">Adjectifs</div>
+            <div class="list-desc">30 mots · qualités</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+
+      <button class="list-item" onclick="startLearn('prepositions')">
+        <div class="list-item-left">
+          <div class="list-mark ink">Pr</div>
+          <div class="list-text">
+            <div class="list-title">Prépositions</div>
+            <div class="list-desc">20 mots · relations</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+
+      <button class="list-item" onclick="startLearn('expressions')">
+        <div class="list-item-left">
+          <div class="list-mark green">Ex</div>
+          <div class="list-text">
+            <div class="list-title">Expressions</div>
+            <div class="list-desc">30 mots · usuelles</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot" style="background: var(--der);"></span>der</div>
+      <div class="legend-item"><span class="legend-dot" style="background: var(--die);"></span>die</div>
+      <div class="legend-item"><span class="legend-dot" style="background: var(--das);"></span>das</div>
+    </div>
+  </div>
+
+  <!-- ============ QUIZ MENU ============ -->
+  <div id="quizMenu" class="view hidden">
+    <button class="back-btn" onclick="navigate('homeView')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Retour
+    </button>
+
+    <div class="section-head" style="margin-top: 0;">
+      <h2 class="section-title">Tests &amp; <em>défis</em></h2>
+    </div>
+
+    <div class="toggle-row">
+      <div class="toggle-info">
+        <span class="toggle-label">Mode difficile</span>
+        <span class="toggle-desc">5 choix · +50% pts</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="hardMode">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="list" style="margin-top: 14px;">
+      <button class="list-item" onclick="startSuperQuiz()">
+        <div class="list-item-left">
+          <div class="list-mark ink">★</div>
+          <div class="list-text">
+            <div class="list-title">Super Quiz</div>
+            <div class="list-desc">Écriture libre · 20 pts</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+      
+      <button class="list-item" onclick="startQuiz('quotidien')">
+        <div class="list-item-left">
+          <div class="list-mark yellow">J</div>
+          <div class="list-text">
+            <div class="list-title">Quotidien</div>
+            <div class="list-desc">Mots du jour</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+      
+      <button class="list-item" onclick="startQuiz('hebdomadaire')">
+        <div class="list-item-left">
+          <div class="list-mark red">S</div>
+          <div class="list-text">
+            <div class="list-title">Hebdomadaire</div>
+            <div class="list-desc">Mots de la semaine</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+      
+      <button class="list-item" onclick="startQuiz('mensuel')">
+        <div class="list-item-left">
+          <div class="list-mark blue">M</div>
+          <div class="list-text">
+            <div class="list-title">Mensuel</div>
+            <div class="list-desc">Mots du mois</div>
+          </div>
+        </div>
+        <span class="list-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ LEARN VIEW ============ -->
+  <div id="learnView" class="view hidden">
+    <button class="back-btn" onclick="navigate('learnMenu')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Apprentissage
+    </button>
+
+    <div class="progress-block">
+      <span class="progress-text" id="learnProgressText">— / —</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="learnProgressFill" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-image-wrap">
+        <div class="cat-tag" id="learnCategory">Nom</div>
+        <img class="learn-image" id="learnImage" src="" alt="" onerror="handleImageError(this)">
+      </div>
+      <div class="learn-content">
+        <div class="learn-french" id="learnFrench"></div>
+        <div class="learn-german" id="learnGerman"></div>
+        <button class="audio-btn" onclick="speakCurrent()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          Écouter
+        </button>
+      </div>
+    </div>
+
+    <div class="learn-nav">
+      <button class="nav-arrow" id="prevBtn" onclick="previousWord()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Préc.
+      </button>
+      <button class="nav-arrow next" id="nextBtn" onclick="nextWord()">
+        Suivant
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ QUIZ VIEW ============ -->
+  <div id="quizView" class="view hidden">
+    <button class="back-btn" onclick="confirmExitQuiz()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Quitter
+    </button>
+
+    <div class="quiz-header">
+      <span class="quiz-progress-text" id="quizProgressText">Q 1/10</span>
+      <span class="quiz-score-text" id="quizScoreText">0/0</span>
+    </div>
+
+    <div class="progress-bar" style="margin-bottom: 16px;">
+      <div class="progress-fill" id="quizProgressFill" style="width: 0%"></div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="quiz-image-wrap">
+        <img class="quiz-image" id="quizImage" src="" alt="" onerror="handleImageError(this)">
+      </div>
+      <div class="quiz-content">
+        <div class="quiz-prompt">
+          <div class="quiz-prompt-label">→ Traduis en allemand</div>
+          <div class="quiz-prompt-word" id="quizFrench"></div>
+        </div>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+    </div>
+
+    <div id="quizFeedback"></div>
+    <button id="quizNextBtn" class="btn-primary hidden" onclick="nextQuizQuestion()">Continuer</button>
+  </div>
+
+  <!-- ============ SUPER QUIZ ============ -->
+  <div id="superQuizView" class="view hidden">
+    <button class="back-btn" onclick="confirmExitQuiz()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Quitter
+    </button>
+
+    <div class="quiz-header">
+      <span class="quiz-progress-text" id="superQuizProgressText">Q 1/10</span>
+      <span class="quiz-score-text" id="superQuizScoreText">0/0</span>
+    </div>
+
+    <div class="progress-bar" style="margin-bottom: 16px;">
+      <div class="progress-fill" id="superQuizProgressFill" style="width: 0%"></div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="quiz-image-wrap">
+        <img class="quiz-image" id="superQuizImage" src="" alt="" onerror="handleImageError(this)">
+      </div>
+      <div class="quiz-content">
+        <div class="quiz-prompt">
+          <div class="quiz-prompt-label">★ Écris en allemand</div>
+          <div class="quiz-prompt-word" id="superQuizFrench"></div>
+        </div>
+        <div class="super-input-wrap">
+          <input type="text" class="super-input" id="superQuizInput" placeholder="das Wort..." autocomplete="off" autocapitalize="off" spellcheck="false">
+          <div class="super-hint">Pour les noms : inclure l'article</div>
+        </div>
+        <button class="btn-primary" id="superSubmitBtn" onclick="checkSuperQuizAnswer()">
+          Valider
+        </button>
+      </div>
+    </div>
+
+    <div id="superQuizFeedback"></div>
+    <button id="superNextBtn" class="btn-primary hidden" onclick="nextSuperQuizQuestion()" style="margin-top: 12px;">Continuer</button>
+  </div>
+
+</div>
+
+<!-- RESULTS MODAL -->
+<div class="modal-overlay" id="resultsModal">
+  <div class="modal">
+    <div class="modal-eyebrow" id="modalEyebrow">Quiz terminé</div>
+    <div class="modal-score"><span id="modalScore">0</span><sup>%</sup></div>
+    <div class="modal-detail" id="modalDetail">Bien joué !</div>
+    
+    <div class="modal-stats">
+      <div class="modal-stat">
+        <div class="modal-stat-value" id="modalCorrect">0</div>
+        <div class="modal-stat-label">Réussies</div>
+      </div>
+      <div class="modal-stat">
+        <div class="modal-stat-value" id="modalPoints">+0</div>
+        <div class="modal-stat-label">Points</div>
+      </div>
+    </div>
+    
+    <button class="btn-primary" onclick="closeResults()">Terminer</button>
+  </div>
+</div>
+
+<script>
+// ============================================
+// DATA — 140 mots (Noms, Verbes, Adjectifs, Prépositions, Expressions)
+// ============================================
+const wordsDatabase = {
+  noms: [
+    { fr: "le chien", de: "der Hund", article: "der", img: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&h=450&fit=crop&q=80", emoji: "🐕" },
+    { fr: "le chat", de: "die Katze", article: "die", img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=450&fit=crop&q=80", emoji: "🐱" },
+    { fr: "la maison", de: "das Haus", article: "das", img: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=450&fit=crop&q=80", emoji: "🏠" },
+    { fr: "l'eau", de: "das Wasser", article: "das", img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&h=450&fit=crop&q=80", emoji: "💧" },
+    { fr: "le pain", de: "das Brot", article: "das", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=450&fit=crop&q=80", emoji: "🍞" },
+    { fr: "la pomme", de: "der Apfel", article: "der", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&h=450&fit=crop&q=80", emoji: "🍎" },
+    { fr: "le livre", de: "das Buch", article: "das", img: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&h=450&fit=crop&q=80", emoji: "📚" },
+    { fr: "la voiture", de: "das Auto", article: "das", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=450&fit=crop&q=80", emoji: "🚗" },
+    { fr: "le soleil", de: "die Sonne", article: "die", img: "https://images.unsplash.com/photo-1532978879514-6cb1f6b3320b?w=600&h=450&fit=crop&q=80", emoji: "☀️" },
+    { fr: "la lune", de: "der Mond", article: "der", img: "https://images.unsplash.com/photo-1532693322450-2cb5c511067d?w=600&h=450&fit=crop&q=80", emoji: "🌙" },
+    { fr: "la table", de: "der Tisch", article: "der", img: "https://images.unsplash.com/photo-1577140917170-285929fb55b7?w=600&h=450&fit=crop&q=80", emoji: "🪑" },
+    { fr: "la chaise", de: "der Stuhl", article: "der", img: "https://images.unsplash.com/photo-1503602642458-232111445657?w=600&h=450&fit=crop&q=80", emoji: "💺" },
+    { fr: "la porte", de: "die Tür", article: "die", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop&q=80", emoji: "🚪" },
+    { fr: "la fenêtre", de: "das Fenster", article: "das", img: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&h=450&fit=crop&q=80", emoji: "🪟" },
+    { fr: "le téléphone", de: "das Telefon", article: "das", img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=450&fit=crop&q=80", emoji: "📱" },
+    { fr: "l'ordinateur", de: "der Computer", article: "der", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=450&fit=crop&q=80", emoji: "💻" },
+    { fr: "le café", de: "der Kaffee", article: "der", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=450&fit=crop&q=80", emoji: "☕" },
+    { fr: "le thé", de: "der Tee", article: "der", img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&h=450&fit=crop&q=80", emoji: "🍵" },
+    { fr: "la fleur", de: "die Blume", article: "die", img: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=450&fit=crop&q=80", emoji: "🌸" },
+    { fr: "l'arbre", de: "der Baum", article: "der", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=450&fit=crop&q=80", emoji: "🌳" },
+    { fr: "la montagne", de: "der Berg", article: "der", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=450&fit=crop&q=80", emoji: "⛰️" },
+    { fr: "la mer", de: "das Meer", article: "das", img: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&h=450&fit=crop&q=80", emoji: "🌊" },
+    { fr: "le poisson", de: "der Fisch", article: "der", img: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=600&h=450&fit=crop&q=80", emoji: "🐟" },
+    { fr: "l'oiseau", de: "der Vogel", article: "der", img: "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=600&h=450&fit=crop&q=80", emoji: "🐦" },
+    { fr: "le fromage", de: "der Käse", article: "der", img: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&h=450&fit=crop&q=80", emoji: "🧀" },
+    { fr: "le vin", de: "der Wein", article: "der", img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=450&fit=crop&q=80", emoji: "🍷" },
+    { fr: "la bière", de: "das Bier", article: "das", img: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&h=450&fit=crop&q=80", emoji: "🍺" },
+    { fr: "le train", de: "der Zug", article: "der", img: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&h=450&fit=crop&q=80", emoji: "🚂" },
+    { fr: "l'avion", de: "das Flugzeug", article: "das", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=450&fit=crop&q=80", emoji: "✈️" },
+    { fr: "le vélo", de: "das Fahrrad", article: "das", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=450&fit=crop&q=80", emoji: "🚲" },
+  ],
+  verbes: [
+    { fr: "manger", de: "essen", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=450&fit=crop&q=80", emoji: "🍽️" },
+    { fr: "boire", de: "trinken", img: "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=600&h=450&fit=crop&q=80", emoji: "🥤" },
+    { fr: "dormir", de: "schlafen", img: "https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=600&h=450&fit=crop&q=80", emoji: "😴" },
+    { fr: "courir", de: "laufen", img: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=450&fit=crop&q=80", emoji: "🏃" },
+    { fr: "lire", de: "lesen", img: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=600&h=450&fit=crop&q=80", emoji: "📖" },
+    { fr: "écrire", de: "schreiben", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=450&fit=crop&q=80", emoji: "✍️" },
+    { fr: "parler", de: "sprechen", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=450&fit=crop&q=80", emoji: "💬" },
+    { fr: "écouter", de: "hören", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=450&fit=crop&q=80", emoji: "🎧" },
+    { fr: "voir", de: "sehen", img: "https://images.unsplash.com/photo-1494869042583-f6c911f04b4c?w=600&h=450&fit=crop&q=80", emoji: "👁️" },
+    { fr: "jouer", de: "spielen", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=450&fit=crop&q=80", emoji: "🎮" },
+    { fr: "travailler", de: "arbeiten", img: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=600&h=450&fit=crop&q=80", emoji: "💼" },
+    { fr: "apprendre", de: "lernen", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=450&fit=crop&q=80", emoji: "📝" },
+    { fr: "enseigner", de: "lehren", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=450&fit=crop&q=80", emoji: "👨‍🏫" },
+    { fr: "cuisiner", de: "kochen", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=450&fit=crop&q=80", emoji: "🍳" },
+    { fr: "danser", de: "tanzen", img: "https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&h=450&fit=crop&q=80", emoji: "💃" },
+    { fr: "chanter", de: "singen", img: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=450&fit=crop&q=80", emoji: "🎤" },
+    { fr: "nager", de: "schwimmen", img: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&h=450&fit=crop&q=80", emoji: "🏊" },
+    { fr: "marcher", de: "gehen", img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&h=450&fit=crop&q=80", emoji: "🚶" },
+    { fr: "rire", de: "lachen", img: "https://images.unsplash.com/photo-1542596594-649edbc13630?w=600&h=450&fit=crop&q=80", emoji: "😄" },
+    { fr: "pleurer", de: "weinen", img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=450&fit=crop&q=80", emoji: "😢" },
+    { fr: "aimer", de: "lieben", img: "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=600&h=450&fit=crop&q=80", emoji: "❤️" },
+    { fr: "détester", de: "hassen", img: "https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600&h=450&fit=crop&q=80", emoji: "💔" },
+    { fr: "acheter", de: "kaufen", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=450&fit=crop&q=80", emoji: "🛒" },
+    { fr: "vendre", de: "verkaufen", img: "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=450&fit=crop&q=80", emoji: "💰" },
+    { fr: "ouvrir", de: "öffnen", img: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=600&h=450&fit=crop&q=80", emoji: "🔓" },
+    { fr: "fermer", de: "schließen", img: "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=600&h=450&fit=crop&q=80", emoji: "🔒" },
+    { fr: "commencer", de: "beginnen", img: "https://images.unsplash.com/photo-1533228876829-65c94e7b5025?w=600&h=450&fit=crop&q=80", emoji: "▶️" },
+    { fr: "finir", de: "beenden", img: "https://images.unsplash.com/photo-1533236897111-3e94666b2edf?w=600&h=450&fit=crop&q=80", emoji: "🏁" },
+    { fr: "chercher", de: "suchen", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=450&fit=crop&q=80", emoji: "🔍" },
+    { fr: "trouver", de: "finden", img: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=600&h=450&fit=crop&q=80", emoji: "🎯" },
+  ],
+  adjectifs: [
+    { fr: "grand", de: "groß", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=450&fit=crop&q=80", emoji: "📏" },
+    { fr: "petit", de: "klein", img: "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=600&h=450&fit=crop&q=80", emoji: "🔬" },
+    { fr: "beau", de: "schön", img: "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=600&h=450&fit=crop&q=80", emoji: "✨" },
+    { fr: "bon", de: "gut", img: "https://images.unsplash.com/photo-1517232115160-ff93364542dd?w=600&h=450&fit=crop&q=80", emoji: "👍" },
+    { fr: "mauvais", de: "schlecht", img: "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?w=600&h=450&fit=crop&q=80", emoji: "👎" },
+    { fr: "rapide", de: "schnell", img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=450&fit=crop&q=80", emoji: "⚡" },
+    { fr: "lent", de: "langsam", img: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=450&fit=crop&q=80", emoji: "🐌" },
+    { fr: "chaud", de: "heiß", img: "https://images.unsplash.com/photo-1494059980473-813e73ee784b?w=600&h=450&fit=crop&q=80", emoji: "🔥" },
+    { fr: "froid", de: "kalt", img: "https://images.unsplash.com/photo-1457269449834-928af64c684d?w=600&h=450&fit=crop&q=80", emoji: "❄️" },
+    { fr: "nouveau", de: "neu", img: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&h=450&fit=crop&q=80", emoji: "🆕" },
+    { fr: "vieux", de: "alt", img: "https://images.unsplash.com/photo-1559548331-f9cb98280344?w=600&h=450&fit=crop&q=80", emoji: "👴" },
+    { fr: "jeune", de: "jung", img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=450&fit=crop&q=80", emoji: "👶" },
+    { fr: "heureux", de: "glücklich", img: "https://images.unsplash.com/photo-1496360166961-10a51d5f367a?w=600&h=450&fit=crop&q=80", emoji: "😊" },
+    { fr: "triste", de: "traurig", img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&h=450&fit=crop&q=80", emoji: "😔" },
+    { fr: "facile", de: "einfach", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=450&fit=crop&q=80", emoji: "✅" },
+    { fr: "difficile", de: "schwer", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=450&fit=crop&q=80", emoji: "⚠️" },
+    { fr: "fort", de: "stark", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=450&fit=crop&q=80", emoji: "💪" },
+    { fr: "faible", de: "schwach", img: "https://images.unsplash.com/photo-1551845041-63e8e76836ea?w=600&h=450&fit=crop&q=80", emoji: "🤕" },
+    { fr: "riche", de: "reich", img: "https://images.unsplash.com/photo-1543699565-003b8adda5fc?w=600&h=450&fit=crop&q=80", emoji: "💎" },
+    { fr: "pauvre", de: "arm", img: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&h=450&fit=crop&q=80", emoji: "🪙" },
+    { fr: "intelligent", de: "klug", img: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=600&h=450&fit=crop&q=80", emoji: "🧠" },
+    { fr: "stupide", de: "dumm", img: "https://images.unsplash.com/photo-1521120098171-d56a877a3cc6?w=600&h=450&fit=crop&q=80", emoji: "🤪" },
+    { fr: "propre", de: "sauber", img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=600&h=450&fit=crop&q=80", emoji: "🧼" },
+    { fr: "sale", de: "schmutzig", img: "https://images.unsplash.com/photo-1581578017093-cd30fce4eeb7?w=600&h=450&fit=crop&q=80", emoji: "🦠" },
+    { fr: "plein", de: "voll", img: "https://images.unsplash.com/photo-1556881124-1c1a8d8fa1dc?w=600&h=450&fit=crop&q=80", emoji: "🌕" },
+    { fr: "vide", de: "leer", img: "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&h=450&fit=crop&q=80", emoji: "⚪" },
+    { fr: "long", de: "lang", img: "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=600&h=450&fit=crop&q=80", emoji: "📐" },
+    { fr: "court", de: "kurz", img: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=450&fit=crop&q=80", emoji: "📏" },
+    { fr: "large", de: "breit", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&h=450&fit=crop&q=80", emoji: "↔️" },
+    { fr: "étroit", de: "schmal", img: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600&h=450&fit=crop&q=80", emoji: "↕️" },
+  ],
+  prepositions: [
+    { fr: "avec", de: "mit", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=450&fit=crop&q=80", emoji: "🤝" },
+    { fr: "sans", de: "ohne", img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&h=450&fit=crop&q=80", emoji: "🚫" },
+    { fr: "pour", de: "für", img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=450&fit=crop&q=80", emoji: "🎁" },
+    { fr: "contre", de: "gegen", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=450&fit=crop&q=80", emoji: "⚔️" },
+    { fr: "dans", de: "in", img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=450&fit=crop&q=80", emoji: "📦" },
+    { fr: "sur", de: "auf", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450&fit=crop&q=80", emoji: "⬆️" },
+    { fr: "sous", de: "unter", img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=450&fit=crop&q=80", emoji: "⬇️" },
+    { fr: "devant", de: "vor", img: "https://images.unsplash.com/photo-1481026469463-66327c86e544?w=600&h=450&fit=crop&q=80", emoji: "👉" },
+    { fr: "derrière", de: "hinter", img: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=450&fit=crop&q=80", emoji: "👈" },
+    { fr: "entre", de: "zwischen", img: "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=600&h=450&fit=crop&q=80", emoji: "↔️" },
+    { fr: "à côté de", de: "neben", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=450&fit=crop&q=80", emoji: "👫" },
+    { fr: "vers", de: "zu", img: "https://images.unsplash.com/photo-1502780402662-acc01917738e?w=600&h=450&fit=crop&q=80", emoji: "➡️" },
+    { fr: "de", de: "von", img: "https://images.unsplash.com/photo-1503602642458-232111445657?w=600&h=450&fit=crop&q=80", emoji: "📍" },
+    { fr: "chez", de: "bei", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=450&fit=crop&q=80", emoji: "🏡" },
+    { fr: "avant", de: "vor", img: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=600&h=450&fit=crop&q=80", emoji: "⏪" },
+    { fr: "après", de: "nach", img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&h=450&fit=crop&q=80", emoji: "⏩" },
+    { fr: "pendant", de: "während", img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&h=450&fit=crop&q=80", emoji: "⏳" },
+    { fr: "depuis", de: "seit", img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&h=450&fit=crop&q=80", emoji: "📅" },
+    { fr: "jusqu'à", de: "bis", img: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=600&h=450&fit=crop&q=80", emoji: "🏁" },
+    { fr: "à travers", de: "durch", img: "https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=600&h=450&fit=crop&q=80", emoji: "🔀" },
+  ],
+  expressions: [
+    { fr: "Bonjour", de: "Guten Tag", img: "https://images.unsplash.com/photo-1521119989659-a83eee488004?w=600&h=450&fit=crop&q=80", emoji: "👋" },
+    { fr: "Bonsoir", de: "Guten Abend", img: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600&h=450&fit=crop&q=80", emoji: "🌆" },
+    { fr: "Bonne nuit", de: "Gute Nacht", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=600&h=450&fit=crop&q=80", emoji: "🌙" },
+    { fr: "Au revoir", de: "Auf Wiedersehen", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=450&fit=crop&q=80", emoji: "👋" },
+    { fr: "Merci", de: "Danke", img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&h=450&fit=crop&q=80", emoji: "🙏" },
+    { fr: "S'il vous plaît", de: "Bitte", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=450&fit=crop&q=80", emoji: "🤲" },
+    { fr: "De rien", de: "Gern geschehen", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=450&fit=crop&q=80", emoji: "😊" },
+    { fr: "Excusez-moi", de: "Entschuldigung", img: "https://images.unsplash.com/photo-1495216875107-c6c043eb703f?w=600&h=450&fit=crop&q=80", emoji: "🙇" },
+    { fr: "Pardon", de: "Verzeihung", img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&h=450&fit=crop&q=80", emoji: "😔" },
+    { fr: "Comment ça va", de: "Wie geht's", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=450&fit=crop&q=80", emoji: "💬" },
+    { fr: "Ça va bien", de: "Es geht gut", img: "https://images.unsplash.com/photo-1517232115160-ff93364542dd?w=600&h=450&fit=crop&q=80", emoji: "👍" },
+    { fr: "Je m'appelle", de: "Ich heiße", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=450&fit=crop&q=80", emoji: "🏷️" },
+    { fr: "Enchanté", de: "Freut mich", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=450&fit=crop&q=80", emoji: "🤝" },
+    { fr: "Je ne comprends pas", de: "Ich verstehe nicht", img: "https://images.unsplash.com/photo-1521120098171-d56a877a3cc6?w=600&h=450&fit=crop&q=80", emoji: "🤔" },
+    { fr: "Parlez-vous français", de: "Sprechen Sie Französisch", img: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&h=450&fit=crop&q=80", emoji: "🇫🇷" },
+    { fr: "Oui", de: "Ja", img: "https://images.unsplash.com/photo-1517232115160-ff93364542dd?w=600&h=450&fit=crop&q=80", emoji: "✅" },
+    { fr: "Non", de: "Nein", img: "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?w=600&h=450&fit=crop&q=80", emoji: "❌" },
+    { fr: "Peut-être", de: "Vielleicht", img: "https://images.unsplash.com/photo-1531315630201-bb15abeb1653?w=600&h=450&fit=crop&q=80", emoji: "🤷" },
+    { fr: "D'accord", de: "Einverstanden", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=450&fit=crop&q=80", emoji: "👌" },
+    { fr: "À bientôt", de: "Bis bald", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=450&fit=crop&q=80", emoji: "👋" },
+    { fr: "À demain", de: "Bis morgen", img: "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=600&h=450&fit=crop&q=80", emoji: "📅" },
+    { fr: "Bonne journée", de: "Schönen Tag", img: "https://images.unsplash.com/photo-1532978879514-6cb1f6b3320b?w=600&h=450&fit=crop&q=80", emoji: "☀️" },
+    { fr: "Bon appétit", de: "Guten Appetit", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=450&fit=crop&q=80", emoji: "🍽️" },
+    { fr: "Santé", de: "Prost", img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=450&fit=crop&q=80", emoji: "🍻" },
+    { fr: "Bonne chance", de: "Viel Glück", img: "https://images.unsplash.com/photo-1518602164578-cd0074062767?w=600&h=450&fit=crop&q=80", emoji: "🍀" },
+    { fr: "Félicitations", de: "Glückwunsch", img: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=450&fit=crop&q=80", emoji: "🎉" },
+    { fr: "Joyeux anniversaire", de: "Alles Gute zum Geburtstag", img: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&h=450&fit=crop&q=80", emoji: "🎂" },
+    { fr: "Je t'aime", de: "Ich liebe dich", img: "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=600&h=450&fit=crop&q=80", emoji: "❤️" },
+    { fr: "Bienvenue", de: "Willkommen", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=450&fit=crop&q=80", emoji: "🚪" },
+    { fr: "Comment", de: "Wie", img: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&h=450&fit=crop&q=80", emoji: "❓" },
+  ]
+};
+
+const categoryLabels = {
+  noms: "Nom",
+  verbes: "Verbe",
+  adjectifs: "Adjectif",
+  prepositions: "Préposition",
+  expressions: "Expression"
+};
+
+const TOTAL_WORDS = Object.values(wordsDatabase).reduce((s, arr) => s + arr.length, 0);
+
+// ============================================
+// STATE
+// ============================================
+let state = {
+  currentCategory: null,
+  currentWords: [],
+  currentIndex: 0,
+  learnedWords: new Set(),
+  weeklyWords: new Set(),
+  monthlyWords: new Set(),
+  score: 0,
+  quizWords: [],
+  currentQuizIndex: 0,
+  quizCorrect: 0,
+  quizTotal: 0,
+  perfectQuizzes: 0,
+  superQuizSuccess: 0,
+  streak: 0,
+  lastVisit: null,
+  hardMode: false,
+  totalQuizAnswers: 0,
+  totalQuizCorrect: 0,
+  badges: { beginner: false, learner: false, master: false, perfect: false, streak: false, super: false },
+  theme: 'light'
+};
+
+// ============================================
+// PERSISTENCE
+// ============================================
+function save() {
+  try {
+    localStorage.setItem('lernen-bauhaus', JSON.stringify({
+      ...state,
+      learnedWords: [...state.learnedWords],
+      weeklyWords: [...state.weeklyWords],
+      monthlyWords: [...state.monthlyWords],
+      currentWords: [],
+      quizWords: []
+    }));
+  } catch(e) {}
+}
+
+function load() {
+  try {
+    const raw = localStorage.getItem('lernen-bauhaus');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    state = {
+      ...state,
+      ...data,
+      learnedWords: new Set(data.learnedWords || []),
+      weeklyWords: new Set(data.weeklyWords || []),
+      monthlyWords: new Set(data.monthlyWords || []),
+      currentWords: [],
+      quizWords: []
+    };
+  } catch(e) {}
+}
+
+function updateStreak() {
+  const today = new Date().toDateString();
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  if (state.lastVisit === today) return;
+  if (state.lastVisit === yesterday) state.streak++;
+  else state.streak = 1;
+  state.lastVisit = today;
+  save();
+}
+
+function toggleTheme() {
+  state.theme = state.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', state.theme);
+  save();
+}
+
+function navigate(viewId) {
+  ['homeView','learnMenu','quizMenu','learnView','quizView','superQuizView'].forEach(id => {
+    document.getElementById(id).classList.add('hidden');
+  });
+  document.getElementById(viewId).classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (viewId === 'homeView') updateUI();
+}
+
+function updateUI() {
+  document.getElementById('heroLearned').textContent = state.learnedWords.size;
+  document.getElementById('heroTotal').textContent = TOTAL_WORDS;
+  
+  const sub = document.getElementById('heroSubtitle');
+  if (state.learnedWords.size === 0) sub.innerHTML = `Commence ton voyage vers <span class="accent">la fluidité</span>`;
+  else if (state.learnedWords.size < 40) sub.innerHTML = `Belle progression, <span class="accent">continue ainsi</span>`;
+  else if (state.learnedWords.size < 90) sub.innerHTML = `Tu deviens un <span class="accent">vrai polyglotte</span>`;
+  else sub.innerHTML = `Impressionnant, <span class="accent">presque parfait</span>`;
+  
+  document.getElementById('statPoints').textContent = state.score;
+  const rate = state.totalQuizAnswers > 0 
+    ? Math.round((state.totalQuizCorrect / state.totalQuizAnswers) * 100)
+    : null;
+  document.getElementById('statSuccess').textContent = rate !== null ? rate + '%' : '—';
+  document.getElementById('statWeek').textContent = state.weeklyWords.size;
+  document.getElementById('streakValue').textContent = state.streak;
+  
+  updateBadges();
+}
+
+function updateBadges() {
+  const conditions = {
+    beginner: state.learnedWords.size >= 10,
+    learner: state.learnedWords.size >= 30,
+    master: state.learnedWords.size >= 60,
+    perfect: state.perfectQuizzes >= 10,
+    streak: state.streak >= 7,
+    super: state.superQuizSuccess >= 20
+  };
+  let earnedCount = 0;
+  for (const [badge, earned] of Object.entries(conditions)) {
+    const el = document.getElementById(`badge-${badge}`);
+    if (earned) { el.classList.add('earned'); state.badges[badge] = true; earnedCount++; }
+  }
+  document.getElementById('badgeCount').textContent = `${earnedCount}/6`;
+}
+
+function handleImageError(img) {
+  let emoji = '📷';
+  if (state.currentWords && state.currentWords[state.currentIndex]) emoji = state.currentWords[state.currentIndex].emoji || '📷';
+  if (state.quizWords && state.quizWords[state.currentQuizIndex]) emoji = state.quizWords[state.currentQuizIndex].emoji || emoji;
+  const wrap = img.parentElement;
+  img.style.display = 'none';
+  if (!wrap.querySelector('.image-fallback')) {
+    const fb = document.createElement('div');
+    fb.className = 'image-fallback';
+    fb.textContent = emoji;
+    wrap.appendChild(fb);
+  }
+}
+
+function setImage(imgEl, word) {
+  const wrap = imgEl.parentElement;
+  const existing = wrap.querySelector('.image-fallback');
+  if (existing) existing.remove();
+  imgEl.style.display = 'block';
+  imgEl.src = word.img;
+  imgEl.alt = word.fr;
+}
+
+// ============================================
+// LEARN
+// ============================================
+function startLearn(category) {
+  state.currentCategory = category;
+  state.currentWords = wordsDatabase[category];
+  state.currentIndex = 0;
+  navigate('learnView');
+  displayWord();
+}
+
+function displayWord() {
+  const word = state.currentWords[state.currentIndex];
+  const wordKey = `${state.currentCategory}-${state.currentIndex}`;
+  
+  setImage(document.getElementById('learnImage'), word);
+  document.getElementById('learnCategory').textContent = categoryLabels[state.currentCategory];
+  document.getElementById('learnFrench').textContent = word.fr;
+  
+  const germanEl = document.getElementById('learnGerman');
+  if (word.article) {
+    const parts = word.de.split(' ');
+    const article = parts[0];
+    const noun = parts.slice(1).join(' ');
+    germanEl.innerHTML = `<span class="article article-${word.article}">${article}</span> ${noun}`;
+  } else {
+    germanEl.textContent = word.de;
+  }
+  
+  const progress = ((state.currentIndex + 1) / state.currentWords.length) * 100;
+  document.getElementById('learnProgressFill').style.width = progress + '%';
+  document.getElementById('learnProgressText').textContent = `${state.currentIndex + 1} / ${state.currentWords.length}`;
+  
+  document.getElementById('prevBtn').disabled = state.currentIndex === 0;
+  document.getElementById('nextBtn').disabled = state.currentIndex === state.currentWords.length - 1;
+  
+  if (!state.learnedWords.has(wordKey)) {
+    state.learnedWords.add(wordKey);
+    state.weeklyWords.add(wordKey);
+    state.monthlyWords.add(wordKey);
+    state.score += 5;
+    save();
+  }
+}
+
+function previousWord() { if (state.currentIndex > 0) { state.currentIndex--; displayWord(); } }
+function nextWord() { if (state.currentIndex < state.currentWords.length - 1) { state.currentIndex++; displayWord(); } }
+
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'de-DE';
+  u.rate = 0.85;
+  const btn = document.querySelector('.audio-btn');
+  if (btn) { btn.classList.add('playing'); u.onend = () => btn.classList.remove('playing'); }
+  window.speechSynthesis.speak(u);
+}
+
+function speakCurrent() {
+  if (state.currentWords[state.currentIndex]) speak(state.currentWords[state.currentIndex].de);
+}
+
+document.getElementById('hardMode').addEventListener('change', e => { state.hardMode = e.target.checked; save(); });
+
+// ============================================
+// QUIZ
+// ============================================
+function startQuiz(type) {
+  const words = [];
+  state.learnedWords.forEach(wordKey => {
+    const [cat, idx] = wordKey.split('-');
+    if (wordsDatabase[cat] && wordsDatabase[cat][parseInt(idx)]) {
+      words.push({ ...wordsDatabase[cat][parseInt(idx)], category: cat, key: wordKey });
+    }
+  });
+  
+  if (words.length === 0) { alert("Apprends d'abord quelques mots !"); return; }
+  
+  state.quizWords = shuffle(words).slice(0, Math.min(10, words.length));
+  state.currentQuizIndex = 0;
+  state.quizCorrect = 0;
+  state.quizTotal = 0;
+  
+  navigate('quizView');
+  displayQuizQuestion();
+}
+
+function displayQuizQuestion() {
+  if (state.currentQuizIndex >= state.quizWords.length) { endQuiz(); return; }
+  
+  const word = state.quizWords[state.currentQuizIndex];
+  setImage(document.getElementById('quizImage'), word);
+  document.getElementById('quizFrench').textContent = word.fr;
+  
+  const progress = (state.currentQuizIndex / state.quizWords.length) * 100;
+  document.getElementById('quizProgressFill').style.width = progress + '%';
+  document.getElementById('quizProgressText').textContent = `Q ${state.currentQuizIndex + 1}/${state.quizWords.length}`;
+  document.getElementById('quizScoreText').textContent = `${state.quizCorrect}/${state.quizTotal}`;
+  
+  const options = generateOptions(word);
+  const container = document.getElementById('quizOptions');
+  container.innerHTML = '';
+  
+  const letters = ['A','B','C','D','E'];
+  options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    btn.innerHTML = `<span class="quiz-option-letter">${letters[i]}</span> <span>${opt}</span>`;
+    btn.onclick = () => checkAnswer(opt, word.de);
+    container.appendChild(btn);
+  });
+  
+  document.getElementById('quizFeedback').innerHTML = '';
+  document.getElementById('quizNextBtn').classList.add('hidden');
+}
+
+function generateOptions(correctWord) {
+  const categoryWords = wordsDatabase[correctWord.category];
+  const numOptions = state.hardMode ? 5 : 3;
+  const options = [correctWord.de];
+  const others = categoryWords.filter(w => w.de !== correctWord.de);
+  const shuffled = shuffle(others);
+  for (let i = 0; i < Math.min(numOptions - 1, shuffled.length); i++) options.push(shuffled[i].de);
+  return shuffle(options);
+}
+
+function checkAnswer(selected, correct) {
+  state.quizTotal++;
+  state.totalQuizAnswers++;
+  const isCorrect = selected === correct;
+  
+  if (isCorrect) {
+    state.quizCorrect++;
+    state.totalQuizCorrect++;
+    state.score += state.hardMode ? 15 : 10;
+  }
+  
+  document.querySelectorAll('.quiz-option').forEach(b => {
+    b.disabled = true;
+    const text = b.querySelector('span:last-child').textContent;
+    if (text === correct) b.classList.add('correct');
+    else if (text === selected && !isCorrect) b.classList.add('incorrect');
+  });
+  
+  document.getElementById('quizFeedback').innerHTML = `
+    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+      <div class="feedback-label">${isCorrect ? '✓ Bonne réponse' : '✕ Incorrect'}</div>
+      <div class="feedback-text">${isCorrect ? 'Excellent travail.' : `La traduction est <strong>${correct}</strong>`}</div>
+    </div>`;
+  
+  const nextBtn = document.getElementById('quizNextBtn');
+  nextBtn.classList.remove('hidden');
+  nextBtn.textContent = state.currentQuizIndex < state.quizWords.length - 1 ? 'Continuer' : 'Voir les résultats';
+  document.getElementById('quizScoreText').textContent = `${state.quizCorrect}/${state.quizTotal}`;
+  save();
+}
+
+function nextQuizQuestion() { state.currentQuizIndex++; displayQuizQuestion(); }
+
+function endQuiz() {
+  const pct = Math.round((state.quizCorrect / state.quizTotal) * 100);
+  if (pct === 100 && state.quizTotal >= 5) state.perfectQuizzes++;
+  showResults({ title: 'Quiz terminé', pct, correct: state.quizCorrect, total: state.quizTotal, points: state.quizCorrect * (state.hardMode ? 15 : 10) });
+  save(); updateUI();
+}
+
+// ============================================
+// SUPER QUIZ
+// ============================================
+function startSuperQuiz() {
+  const words = [];
+  state.learnedWords.forEach(wordKey => {
+    const [cat, idx] = wordKey.split('-');
+    if (wordsDatabase[cat] && wordsDatabase[cat][parseInt(idx)]) {
+      words.push({ ...wordsDatabase[cat][parseInt(idx)], category: cat });
+    }
+  });
+  if (words.length === 0) { alert("Apprends d'abord quelques mots !"); return; }
+  
+  state.quizWords = shuffle(words).slice(0, Math.min(10, words.length));
+  state.currentQuizIndex = 0;
+  state.quizCorrect = 0;
+  state.quizTotal = 0;
+  
+  navigate('superQuizView');
+  displaySuperQuiz();
+}
+
+function displaySuperQuiz() {
+  if (state.currentQuizIndex >= state.quizWords.length) { endSuperQuiz(); return; }
+  
+  const word = state.quizWords[state.currentQuizIndex];
+  setImage(document.getElementById('superQuizImage'), word);
+  document.getElementById('superQuizFrench').textContent = word.fr;
+  
+  const input = document.getElementById('superQuizInput');
+  input.value = '';
+  input.disabled = false;
+  setTimeout(() => input.focus(), 100);
+  
+  document.getElementById('superSubmitBtn').classList.remove('hidden');
+  document.getElementById('superNextBtn').classList.add('hidden');
+  document.getElementById('superQuizFeedback').innerHTML = '';
+  
+  const progress = (state.currentQuizIndex / state.quizWords.length) * 100;
+  document.getElementById('superQuizProgressFill').style.width = progress + '%';
+  document.getElementById('superQuizProgressText').textContent = `Q ${state.currentQuizIndex + 1}/${state.quizWords.length}`;
+  document.getElementById('superQuizScoreText').textContent = `${state.quizCorrect}/${state.quizTotal}`;
+}
+
+document.getElementById('superQuizInput').addEventListener('keypress', e => {
+  if (e.key === 'Enter') checkSuperQuizAnswer();
+});
+
+function normalize(str) {
+  return str.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ß/g, 'ss');
+}
+
+function checkSuperQuizAnswer() {
+  const word = state.quizWords[state.currentQuizIndex];
+  const userAnswer = document.getElementById('superQuizInput').value.trim();
+  if (!userAnswer) return;
+  
+  const isCorrect = normalize(userAnswer) === normalize(word.de);
+  state.quizTotal++;
+  state.totalQuizAnswers++;
+  
+  if (isCorrect) {
+    state.quizCorrect++;
+    state.totalQuizCorrect++;
+    state.score += 20;
+    state.superQuizSuccess++;
+  }
+  
+  document.getElementById('superQuizInput').disabled = true;
+  document.getElementById('superSubmitBtn').classList.add('hidden');
+  
+  document.getElementById('superQuizFeedback').innerHTML = `
+    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}" style="margin-top: 12px;">
+      <div class="feedback-label">${isCorrect ? '✓ Parfait' : '✕ Pas tout à fait'}</div>
+      <div class="feedback-text">${isCorrect ? 'Orthographe correcte.' : `La bonne orthographe est <strong>${word.de}</strong>`}</div>
+    </div>`;
+  
+  const nextBtn = document.getElementById('superNextBtn');
+  nextBtn.classList.remove('hidden');
+  nextBtn.textContent = state.currentQuizIndex < state.quizWords.length - 1 ? 'Continuer' : 'Voir les résultats';
+  document.getElementById('superQuizScoreText').textContent = `${state.quizCorrect}/${state.quizTotal}`;
+  save();
+}
+
+function nextSuperQuizQuestion() { state.currentQuizIndex++; displaySuperQuiz(); }
+
+function endSuperQuiz() {
+  const pct = Math.round((state.quizCorrect / state.quizTotal) * 100);
+  if (pct === 100 && state.quizTotal >= 5) state.perfectQuizzes++;
+  showResults({ title: 'Super Quiz terminé', pct, correct: state.quizCorrect, total: state.quizTotal, points: state.quizCorrect * 20 });
+  save(); updateUI();
+}
+
+function showResults({ title, pct, correct, total, points }) {
+  document.getElementById('modalEyebrow').textContent = title;
+  document.getElementById('modalScore').textContent = pct;
+  document.getElementById('modalCorrect').textContent = `${correct}/${total}`;
+  document.getElementById('modalPoints').textContent = `+${points}`;
+  
+  let detail;
+  if (pct === 100) detail = 'Performance <strong>impeccable</strong>';
+  else if (pct >= 80) detail = 'Excellent <strong>travail</strong>';
+  else if (pct >= 60) detail = 'Belle <strong>progression</strong>';
+  else if (pct >= 40) detail = 'Continue tes <strong>efforts</strong>';
+  else detail = 'L\'apprentissage prend du <strong>temps</strong>';
+  
+  document.getElementById('modalDetail').innerHTML = detail;
+  document.getElementById('resultsModal').classList.add('show');
+}
+
+function closeResults() {
+  document.getElementById('resultsModal').classList.remove('show');
+  navigate('homeView');
+}
+
+function confirmExitQuiz() {
+  if (state.quizTotal > 0 && state.currentQuizIndex < state.quizWords.length) {
+    if (confirm("Quitter le quiz ? Ta progression sera perdue.")) navigate('homeView');
+  } else navigate('homeView');
+}
+
+function shuffle(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ============================================
+// INIT
+// ============================================
+function init() {
+  load();
+  updateStreak();
+  document.documentElement.setAttribute('data-theme', state.theme);
+  document.getElementById('hardMode').checked = state.hardMode;
+  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  updateUI();
+}
+
+init();
+</script>
+</body>
+</html>

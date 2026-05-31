@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernen.de — Preview Design</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Navigation de preview */
+    .preview-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      border-bottom: var(--border);
+      font-family: var(--font-mono);
+    }
+    .preview-nav button {
+      background: transparent;
+      color: var(--cream);
+      border: 1.5px solid transparent;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      border-radius: 4px;
+    }
+    .preview-nav button:hover { border-color: var(--cream); }
+    .preview-nav button.active {
+      background: var(--yellow);
+      color: var(--ink);
+      border-color: var(--yellow);
+    }
+    .preview-label {
+      font-size: 0.7rem;
+      opacity: 0.6;
+      padding: 0.4rem 0.6rem;
+      align-self: center;
+    }
+    body { padding-top: 50px; }
+    .preview-screen { display: none; }
+    .preview-screen.active { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation entre écrans -->
+<div class="preview-nav">
+  <span class="preview-label">PREVIEW :</span>
+  <button data-screen="auth" class="active">1. Accueil</button>
+  <button data-screen="signup">2. Signup</button>
+  <button data-screen="onboarding">3. Onboarding</button>
+  <button data-screen="main">4. Menu principal</button>
+  <button data-screen="cours-select">5. Cours - Sélection</button>
+  <button data-screen="cours-content">6. Cours - Contenu</button>
+  <button data-screen="cours-exam">7. Cours - Examen</button>
+  <button data-screen="cours-result">8. Cours - Résultats</button>
+  <button data-screen="flashcard">9. Flashcard</button>
+  <button data-screen="examen">10. Examen IA</button>
+  <button data-screen="schreiben-result">11. Schreiben résultats</button>
+</div>
+
+<!-- ===== Écran 1 : Accueil ===== -->
+<div class="preview-screen active container" id="screen-auth">
+  <div class="header">
+    <div class="logo">lernen<span class="dot">.</span><span class="ext">de</span></div>
+  </div>
+  <div style="text-align: center; padding: 2rem 1rem;">
+    <div style="font-family: var(--font-serif); font-style: italic; font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem;">
+      Apprends l'allemand
+    </div>
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">avec l'<span style="color: var(--red);">IA</span></h1>
+    <p style="color: var(--muted); margin-bottom: 2rem; font-weight: 500;">
+      Cours sur-mesure · Examens personnalisés · Préparation au Goethe
+    </p>
+    <button class="btn btn-primary btn-block mb-1">Commencer gratuitement</button>
+    <button class="btn btn-block">J'ai déjà un compte</button>
+    <div style="margin-top: 3rem;">
+      <div class="streak-tag" style="margin: 0 auto;">🇩🇪 4 modules · 100% IA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Écran 2 : Signup ===== -->
+<div class="preview-screen container" id="screen-signup">
+  <div class="modal-backdrop" style="position: relative; background: transparent; padding: 1rem 0;">
+    <div class="modal" style="position: relative;">
+      <h2 style="margin-bottom: 1rem; padding-right: 3rem;">S'inscrire</h2>
+      <button class="modal-close">×</button>
+      <button class="btn btn-block mb-1" style="background: white; color: var(--ink); display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-4z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 18.9 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.6l6.2 5.2c-.4.4 6.6-4.8 6.6-14.8 0-1.3-.1-2.7-.4-4z"/></svg>
+        Continuer avec Google
+      </button>
+      <div class="divider-or">ou</div>
+      <div class="field"><label>Nom</label><input type="text" class="input" placeholder="Ton prénom"></div>
+      <div class="field"><label>E-mail</label><input type="email" class="input" placeholder="ton@email.com"></div>
+      <div class="field"><label>Mot de passe</label><input type="password" class="input" placeholder="Au moins 8 caractères"></div>
+      <button class="btn btn-primary btn-block mb-1">Créer mon compte</button>
+      <p class="text-center text-muted" style="font-size: 0.85rem; margin-top: 1rem;">
+        Déjà inscrit ? <a href="#" style="font-weight: 700; text-decoration: underline;">Se connecter</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Écran 3 : Onboarding ===== -->
+<div class="preview-screen container" id="screen-onboarding">
+  <div class="header"><div class="logo">lernen<span class="dot">.</span><span class="ext">de</span></div></div>
+  <div style="padding: 1rem 0;">
+    <h1 style="margin-bottom: 0.5rem;">Bienvenue !</h1>
+    <p class="text-muted mb-2" style="font-weight: 500;">Aide-nous à personnaliser ton apprentissage</p>
+    <div class="card">
+      <div class="field"><label>Comment t'appelles-tu ?</label><input type="text" class="input" placeholder="Ton prénom" value="Marc"></div>
+      <div class="field">
+        <label>Quel est ton niveau actuel d'allemand ?</label>
+        <div class="option-row" style="grid-template-columns: 1fr 1fr;">
+          <button class="option-btn"><strong>A1</strong><br><span style="font-weight: 400; font-size: 0.75rem;">Débutant</span></button>
+          <button class="option-btn active"><strong>A2</strong><br><span style="font-weight: 400; font-size: 0.75rem;">Élémentaire</span></button>
+          <button class="option-btn"><strong>B1</strong><br><span style="font-weight: 400; font-size: 0.75rem;">Intermédiaire</span></button>
+          <button class="option-btn"><strong>B2</strong><br><span style="font-weight: 400; font-size: 0.75rem;">Avancé</span></button>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block mt-1">Continuer →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Écran 4 : Menu principal (4 menus) ===== -->
+<div class="preview-screen container" id="screen-main">
+  <div class="header">
+    <div class="logo">lernen<span class="dot">.</span><span class="ext">de</span></div>
+    <button class="back-btn" style="margin-bottom: 0;">M</button>
+  </div>
+  <div style="margin-bottom: 1.5rem;">
+    <div class="serif" style="font-size: 1.5rem;">Bonjour Marc</div>
+    <p class="text-muted" style="font-weight: 500;">Que veux-tu faire aujourd'hui ?</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card menu-card-cours">
+      <div class="menu-card-emoji">📖</div>
+      <div><div class="menu-card-title">Cours</div><div class="menu-card-sub">Apprends une notion</div></div>
+    </div>
+    <div class="menu-card menu-card-apprendre">
+      <div class="menu-card-emoji">🎴</div>
+      <div><div class="menu-card-title">Apprendre</div><div class="menu-card-sub">Vocab · Quiz · Conj.</div></div>
+    </div>
+    <div class="menu-card menu-card-examen">
+      <div class="menu-card-emoji">🎯</div>
+      <div><div class="menu-card-title">Examen IA</div><div class="menu-card-sub">Teste ton niveau</div></div>
+    </div>
+    <div class="menu-card menu-card-cert">
+      <div class="menu-card-emoji">🎓</div>
+      <div><div class="menu-card-title">Certification</div><div class="menu-card-sub">Goethe A1-B2</div></div>
+    </div>
+  </div>
+  <div class="card" style="background: var(--ink); color: var(--cream);">
+    <div class="flex-between">
+      <div>
+        <div class="mono text-muted" style="font-size: 0.7rem;">TON PROGRÈS</div>
+        <div style="font-size: 1.5rem; font-weight: 800; margin-top: 0.2rem;">
+          12 cours <span style="opacity: 0.5;">·</span> 8 examens
+        </div>
+      </div>
+      <div class="streak-tag">🔥 5j</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Écran 5 : Cours - Sélection ===== -->
+<div class="preview-screen container" id="screen-cours-select">
+  <button class="back-btn">← Retour</button>
+  <div style="margin-bottom: 1rem;">
+    <div class="badge" style="background: var(--yellow); color: var(--ink);">📖 COURS</div>
+    <h1 style="margin-top: 0.5rem;">Crée ton cours</h1>
+    <p class="text-muted" style="font-weight: 500; font-size: 0.9rem;">L'IA va te préparer un cours personnalisé</p>
+  </div>
+  <div class="card mb-1">
+    <h3 style="margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--muted);">1. CATÉGORIE</h3>
+    <div class="option-row">
+      <button class="option-btn">📚 Vocabulaire</button>
+      <button class="option-btn active">✏️ Grammaire</button>
+      <button class="option-btn">🔄 Conjugaison</button>
+      <button class="option-btn">🔤 Orthographe</button>
+      <button class="option-btn">💬 Expression</button>
+      <button class="option-btn">🎭 Culture</button>
+    </div>
+  </div>
+  <div class="card mb-1">
+    <h3 style="margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--muted);">2. NIVEAU</h3>
+    <div class="option-row">
+      <button class="option-btn">A1</button>
+      <button class="option-btn active">A2</button>
+      <button class="option-btn">B1</button>
+      <button class="option-btn">B2</button>
+    </div>
+  </div>
+  <div class="card mb-1">
+    <h3 style="margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--muted);">3. FORMAT</h3>
+    <div class="option-row" style="grid-template-columns: 1fr 1fr 1fr;">
+      <button class="option-btn"><strong>Court</strong><br><span style="font-weight:400;font-size:0.7rem;">~10 min</span></button>
+      <button class="option-btn active"><strong>Standard</strong><br><span style="font-weight:400;font-size:0.7rem;">~20 min</span></button>
+      <button class="option-btn"><strong>Long</strong><br><span style="font-weight:400;font-size:0.7rem;">~30 min</span></button>
+    </div>
+  </div>
+  <div class="card mb-1">
+    <h3 style="margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--muted);">4. SUJET</h3>
+    <div class="field">
+      <input type="text" class="input" placeholder="Ex: Les articles définis, Le datif..." value="Le datif">
+    </div>
+    <div class="mono text-muted mb-1" style="font-size: 0.7rem;">OU CHOISIS UN SUJET SUGGÉRÉ :</div>
+    <div class="suggestion-grid">
+      <button class="suggestion-chip active">L'accusatif : compléments d'objet direct</button>
+      <button class="suggestion-chip">Le datif : compléments d'attribution</button>
+      <button class="suggestion-chip">Les prépositions de lieu</button>
+      <button class="suggestion-chip">Les verbes modaux</button>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-block">Générer mon cours →</button>
+</div>
+
+<!-- ===== Écran 6 : Cours - Contenu ===== -->
+<div class="preview-screen container" id="screen-cours-content">
+  <button class="back-btn">← Retour</button>
+  <div style="margin-bottom: 1rem;">
+    <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+      <span class="badge badge-A2">A2</span>
+      <span class="badge" style="background: var(--cream); color: var(--ink);">✏️ Grammaire</span>
+      <span class="badge" style="background: var(--yellow); color: var(--ink);">⏱ 20min</span>
+    </div>
+    <h1 style="margin-top: 0.75rem; font-size: 1.6rem;">Le datif : maîtriser les compléments d'attribution</h1>
+  </div>
+  <div class="card mb-1" style="background: var(--blue); color: white;">
+    <div class="mono" style="font-size: 0.7rem; opacity: 0.8; margin-bottom: 0.5rem;">OBJECTIF DU COURS</div>
+    <p style="font-size: 1rem; line-height: 1.4; margin-bottom: 0.75rem;">Tu vas apprendre quand et comment utiliser le datif en allemand, ce cas qui exprime à qui ou à quoi quelque chose arrive.</p>
+    <div class="mono" style="font-size: 0.7rem; opacity: 0.8; margin-bottom: 0.3rem;">POURQUOI C'EST UTILE</div>
+    <p style="font-size: 0.9rem; line-height: 1.4;">Le datif est partout en allemand : avec certaines prépositions, après certains verbes, et pour exprimer le destinataire d'une action.</p>
+  </div>
+  <div class="course-content">
+    <div class="course-section">
+      <h3>1. Qu'est-ce que le datif ?</h3>
+      <p style="line-height: 1.5; margin-bottom: 1rem;">Le datif est l'un des quatre cas grammaticaux de l'allemand. Il répond à la question "à qui ?" ou "à quoi ?". En français, on traduit souvent par "à + quelqu'un".</p>
+      <div class="course-example">
+        <div class="de">Ich gebe meinem Bruder ein Buch.</div>
+        <div class="fr">Je donne un livre à mon frère.</div>
+        <div class="commentary">Ici, "meinem Bruder" est au datif car c'est le destinataire de l'action.</div>
+      </div>
+      <div class="card" style="background: var(--red); color: white; margin-top: 1rem;">
+        <div class="mono" style="font-size: 0.7rem; opacity: 0.8; margin-bottom: 0.5rem;">⚠️ ERREUR À ÉVITER</div>
+        <p style="font-size: 0.9rem;">Ne confonds pas datif et accusatif. "Den Bruder" = accusatif, "Dem Bruder" = datif.</p>
+      </div>
+    </div>
+  </div>
+  <div class="key-points">
+    <div class="mono" style="font-size: 0.7rem; margin-bottom: 0.75rem;">📌 À RETENIR</div>
+    <ul>
+      <li>Le datif répond à "à qui ?" ou "à quoi ?"</li>
+      <li>Articles datifs : dem (masc/neutre), der (féminin), den (pluriel +n)</li>
+      <li>Prépositions toujours suivies du datif : aus, bei, mit, nach, seit, von, zu</li>
+    </ul>
+  </div>
+  <button class="btn btn-primary btn-block mt-2">🎯 Passer le mini-examen (5 questions)</button>
+</div>
+
+<!-- ===== Écran 7 : Cours - Examen ===== -->
+<div class="preview-screen container" id="screen-cours-exam">
+  <button class="back-btn">← Retour au cours</button>
+  <div style="margin-bottom: 1rem;">
+    <div class="badge" style="background: var(--red); color: white;">🎯 MINI-EXAMEN</div>
+    <h1 style="margin-top: 0.5rem;">Le datif</h1>
+  </div>
+  <div class="exam-question">
+    <div class="mono text-muted" style="font-size: 0.7rem; margin-bottom: 0.5rem;">QUESTION 1/5</div>
+    <p style="font-weight: 700; margin-bottom: 0.5rem;">Quelle est la bonne traduction de "Je donne le livre à mon ami" ?</p>
+    <div class="exam-options">
+      <button class="exam-option"><div class="marker">A</div><div>Ich gebe meinen Freund das Buch.</div></button>
+      <button class="exam-option selected"><div class="marker">B</div><div>Ich gebe meinem Freund das Buch.</div></button>
+      <button class="exam-option"><div class="marker">C</div><div>Ich gebe mein Freund das Buch.</div></button>
+      <button class="exam-option"><div class="marker">D</div><div>Ich gebe der Freund das Buch.</div></button>
+    </div>
+  </div>
+  <div class="exam-question">
+    <div class="mono text-muted" style="font-size: 0.7rem; margin-bottom: 0.5rem;">QUESTION 2/5</div>
+    <p style="font-weight: 700; margin-bottom: 0.75rem;">Conjugue : Ich helfe ___ Mutter. (la mère)</p>
+    <input type="text" class="input" placeholder="Ta réponse..." value="der">
+  </div>
+  <button class="btn btn-primary btn-block mt-2">Soumettre ma copie</button>
+</div>
+
+<!-- ===== Écran 8 : Cours - Résultats ===== -->
+<div class="preview-screen container" id="screen-cours-result">
+  <div class="card result-card" style="background: var(--green); color: white; border-color: var(--ink);">
+    <div style="font-size: 4rem;">✨</div>
+    <div class="mono" style="font-size: 0.75rem; opacity: 0.8; margin: 0.5rem 0;">SCORE</div>
+    <div class="result-score">4/5</div>
+    <div class="result-percent">80% — Très bien</div>
+  </div>
+  <div class="card mt-2" style="background: var(--cream);">
+    <div class="mono text-muted" style="font-size: 0.7rem; margin-bottom: 0.5rem;">VERDICT</div>
+    <h3 style="text-transform: none; font-size: 1.1rem;">Bonne compréhension</h3>
+    <p style="font-weight: 500; margin-top: 0.75rem;">Tu maîtrises bien le datif avec les articles définis. Continue à pratiquer les prépositions à régime fixe pour consolider.</p>
+    <div class="card" style="background: white; margin-top: 0.75rem;">
+      <div class="mono text-muted" style="font-size: 0.7rem; margin-bottom: 0.3rem;">PROCHAINE ÉTAPE</div>
+      <p style="font-size: 0.9rem; font-weight: 500;">Essaie le cours suivant : "Les prépositions à régime fixe avec datif"</p>
+    </div>
+  </div>
+  <div class="section-title" style="margin-top: 2rem;"><h2 style="font-size: 1.1rem;">Correction détaillée</h2></div>
+  <div class="card mb-1" style="border-left: 4px solid var(--green);">
+    <div class="flex-between mb-1">
+      <span class="mono text-muted" style="font-size: 0.75rem;">Q1</span>
+      <span style="font-weight: 700; font-size: 0.85rem;">✅ Correct · 1 pt</span>
+    </div>
+    <p style="font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Quelle est la bonne traduction de "Je donne le livre à mon ami" ?</p>
+    <div style="font-size: 0.85rem;"><div><strong>Ta réponse :</strong> Ich gebe meinem Freund das Buch.</div></div>
+  </div>
+  <div class="card mb-1" style="border-left: 4px solid var(--red);">
+    <div class="flex-between mb-1">
+      <span class="mono text-muted" style="font-size: 0.75rem;">Q3</span>
+      <span style="font-weight: 700; font-size: 0.85rem;">❌ Faux · 0 pt</span>
+    </div>
+    <p style="font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Avec quelle préposition utilise-t-on toujours le datif ?</p>
+    <div style="font-size: 0.85rem;">
+      <div><strong>Ta réponse :</strong> für</div>
+      <div style="color: var(--green);"><strong>Bonne réponse :</strong> mit</div>
+    </div>
+    <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed var(--muted); font-size: 0.85rem; color: var(--muted);">
+      "Für" est suivi de l'accusatif, tandis que "mit" exige toujours le datif. Pense au moyen acronyme : ABMNSVZ (aus, bei, mit, nach, seit, von, zu).
+    </div>
+  </div>
+</div>
+
+<!-- ===== Écran 9 : Flashcard ===== -->
+<div class="preview-screen container" id="screen-flashcard">
+  <button class="back-btn">← Retour</button>
+  <div class="flex-between mb-1">
+    <span class="mono text-muted" style="font-size: 0.8rem;">3 / 15</span>
+    <span class="badge badge-A2">A2</span>
+  </div>
+  <div style="background: var(--paper); border: var(--border); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 2rem 1.5rem; min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-bottom: 1.5rem;">
+    <div style="color: var(--blue); font-weight: 800; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 0.5rem;">DER</div>
+    <div style="font-size: 2.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem;">Schmetterling</div>
+    <div class="serif text-muted" style="font-size: 1.1rem; margin-top: 1rem;">le papillon</div>
+  </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+    <button class="btn">← Précédent</button>
+    <button class="btn btn-primary">Suivant →</button>
+  </div>
+  <button class="btn btn-yellow btn-block mt-2">🔀 Mélanger</button>
+</div>
+
+<!-- ===== Écran 10 : Examen IA ===== -->
+<div class="preview-screen container" id="screen-examen">
+  <button class="back-btn">← Retour</button>
+  <div style="margin-bottom: 1rem;">
+    <div class="badge" style="background: var(--red); color: white;">🎯 EXAMEN IA</div>
+    <h1 style="margin-top: 0.5rem;">Teste ton niveau</h1>
+  </div>
+  <div class="card mb-1">
+    <h3 style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem;">1. DOMAINE</h3>
+    <div class="option-row">
+      <button class="option-btn">📚 Vocab</button>
+      <button class="option-btn active">✏️ Gram.</button>
+      <button class="option-btn">🔤 Orthogr.</button>
+      <button class="option-btn">🔄 Conjug.</button>
+    </div>
+  </div>
+  <div class="card mb-1">
+    <h3 style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem;">2. NIVEAU</h3>
+    <div class="option-row">
+      <button class="option-btn">A1</button><button class="option-btn active">A2</button>
+      <button class="option-btn">B1</button><button class="option-btn">B2</button>
+    </div>
+  </div>
+  <div class="card mb-1">
+    <h3 style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem;">3. DIFFICULTÉ</h3>
+    <div class="option-row" style="grid-template-columns: 1fr 1fr 1fr;">
+      <button class="option-btn"><strong>Facile</strong></button>
+      <button class="option-btn active"><strong>Moyen</strong></button>
+      <button class="option-btn"><strong>Difficile</strong></button>
+    </div>
+  </div>
+  <div class="card mb-1">
+    <h3 style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem;">4. NOMBRE DE QUESTIONS</h3>
+    <div class="option-row" style="grid-template-columns: repeat(5, 1fr);">
+      <button class="option-btn"><strong>5</strong></button>
+      <button class="option-btn active"><strong>10</strong></button>
+      <button class="option-btn"><strong>15</strong></button>
+      <button class="option-btn"><strong>20</strong></button>
+      <button class="option-btn"><strong>30</strong></button>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-block">Générer l'examen →</button>
+</div>
+
+<!-- ===== Écran 11 : Schreiben résultats ===== -->
+<div class="preview-screen container" id="screen-schreiben-result">
+  <div class="card result-card" style="background: var(--green); color: white; border-color: var(--ink);">
+    <div style="font-size: 4rem;">🎓</div>
+    <div class="mono" style="font-size: 0.75rem; opacity: 0.8; margin: 0.5rem 0;">SCORE GOETHE</div>
+    <div class="result-score">79/100</div>
+    <div class="result-percent">Befriedigend</div>
+    <p style="margin-top: 0.5rem; opacity: 0.9; font-weight: 500; font-size: 0.85rem;">87 mots · ✓ Admis</p>
+  </div>
+  <div class="section-title mt-2"><h2 style="font-size: 1.1rem;">Les 4 critères</h2></div>
+  <div class="card mb-1">
+    <div class="flex-between mb-1">
+      <h3 style="font-size: 0.95rem; text-transform: none;">📋 Erfüllung (Réalisation tâche)</h3>
+      <span style="font-weight: 800; font-size: 1.1rem;">22/25</span>
+    </div>
+    <div style="height: 8px; background: var(--light-gray); border: 2.5px solid var(--ink); border-radius: 99px; overflow: hidden; margin-bottom: 0.5rem;">
+      <div style="height: 100%; width: 88%; background: var(--green);"></div>
+    </div>
+    <p class="text-muted" style="font-size: 0.85rem; font-weight: 500;">Tous les points obligatoires sont traités avec clarté.</p>
+  </div>
+  <div class="card mb-1">
+    <div class="flex-between mb-1">
+      <h3 style="font-size: 0.95rem; text-transform: none;">🔗 Kohärenz (Cohérence)</h3>
+      <span style="font-weight: 800; font-size: 1.1rem;">20/25</span>
+    </div>
+    <div style="height: 8px; background: var(--light-gray); border: 2.5px solid var(--ink); border-radius: 99px; overflow: hidden; margin-bottom: 0.5rem;">
+      <div style="height: 100%; width: 80%; background: var(--green);"></div>
+    </div>
+    <p class="text-muted" style="font-size: 0.85rem; font-weight: 500;">Bonne progression logique. Quelques connecteurs supplémentaires amélioreraient encore.</p>
+  </div>
+  <div class="card mt-2" style="background: var(--green); color: white;">
+    <div class="mono" style="font-size: 0.7rem; opacity: 0.8; margin-bottom: 0.5rem;">💪 TES POINTS FORTS</div>
+    <p style="font-weight: 500; padding: 0.2rem 0;">→ Structure claire avec introduction, développement, conclusion</p>
+    <p style="font-weight: 500; padding: 0.2rem 0;">→ Bonne utilisation des formules de politesse formelles</p>
+  </div>
+  <div class="card mt-1" style="background: var(--yellow);">
+    <div class="mono" style="font-size: 0.7rem; margin-bottom: 0.5rem;">📈 PISTES D'AMÉLIORATION</div>
+    <p style="font-weight: 500; padding: 0.2rem 0;">→ Varier davantage les connecteurs (au-delà de "und" et "aber")</p>
+    <p style="font-weight: 500; padding: 0.2rem 0;">→ Attention à la déclinaison des adjectifs après articles définis</p>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.preview-nav button').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.preview-nav button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.preview-screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-' + btn.dataset.screen).classList.add('active');
+    window.scrollTo(0, 0);
+  };
+});
+</script>
+
+</body>
+</html>
