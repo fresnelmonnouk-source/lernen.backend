@@ -51,36 +51,50 @@ export function getJwtFromRequest(req) {
   return match ? match[1] : null;
 }
 
-// Vérifie le JWT et retourne le user, ou null si invalide
+// Vérifie le JWT et retourne { user, reason }. user = null si invalide.
+// `reason` est un code de diagnostic (TEMPORAIRE) pour identifier la cause
+// exacte des 401 en prod sans accès aux logs Vercel. À simplifier une fois résolu.
 export async function verifyUser(req) {
   const jwt = getJwtFromRequest(req);
-  if (!jwt) return null;
-  
+  if (!jwt) return { user: null, reason: 'no_jwt' };
+
+  const url = process.env.SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !serviceKey) {
+    const missing = [!url && 'SUPABASE_URL', !serviceKey && 'SUPABASE_SERVICE_ROLE_KEY']
+      .filter(Boolean)
+      .join(',');
+    return { user: null, reason: `missing_env:${missing}` };
+  }
+
   try {
     const admin = getSupabaseAdmin();
     const { data, error } = await admin.auth.getUser(jwt);
-    
-    if (error || !data?.user) return null;
-    return data.user;
+
+    if (error) return { user: null, reason: `getUser_error:${error.message || error.status || 'unknown'}` };
+    if (!data?.user) return { user: null, reason: 'no_user' };
+    return { user: data.user, reason: 'ok' };
   } catch (e) {
-    console.error('verifyUser error:', e);
-    return null;
+    console.error('verifyUser exception:', e);
+    return { user: null, reason: `exception:${e?.message || String(e)}` };
   }
 }
 
 // Middleware-like : exige un utilisateur authentifié
 // Retourne { user, supabase } ou envoie 401 directement
 export async function requireAuth(req, res) {
-  const user = await verifyUser(req);
-  
+  const { user, reason } = await verifyUser(req);
+
   if (!user) {
-    res.status(401).json({ error: 'Authentification requise' });
+    console.error('[requireAuth] 401 denied — reason:', reason);
+    // _diag : champ de diagnostic TEMPORAIRE — à RETIRER une fois le 401 résolu.
+    res.status(401).json({ error: 'Authentification requise', _diag: reason });
     return null;
   }
-  
+
   const jwt = getJwtFromRequest(req);
   const supabase = getSupabaseClient(jwt);
-  
+
   return { user, supabase };
 }
 
