@@ -26,6 +26,7 @@ const FORMAT_SPECS = {
     examples_per_section: 2,
     key_points: 3,
     exam_questions: 3,
+    max_tokens: 2500,
     description: 'Cours court et focalisé sur l\'essentiel'
   },
   standard: {
@@ -34,6 +35,7 @@ const FORMAT_SPECS = {
     examples_per_section: 3,
     key_points: 5,
     exam_questions: 5,
+    max_tokens: 4500,
     description: 'Cours équilibré avec exemples variés'
   },
   long: {
@@ -42,6 +44,7 @@ const FORMAT_SPECS = {
     examples_per_section: 4,
     key_points: 7,
     exam_questions: 7,
+    max_tokens: 7000,
     description: 'Cours approfondi avec exercices supplémentaires'
   }
 };
@@ -195,6 +198,7 @@ Crée un cours pédagogique, structuré, avec des exemples allemands ORIGINAUX e
       jsonMode: true,
       temperature: 0.7,
       useCache: false,
+      maxTokens: spec.max_tokens,
     });
 
     const courseData = result.data;

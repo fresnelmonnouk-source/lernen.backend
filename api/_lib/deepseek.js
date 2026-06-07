@@ -90,6 +90,7 @@ export async function askDeepSeek({
   useCache = true,
   jsonMode = false,
   temperature = 0.3,
+  maxTokens = 4096,
 }) {
   const cacheK = useCache ? cacheKey(userPrompt, { systemPrompt, jsonMode }) : null;
   
@@ -112,7 +113,7 @@ export async function askDeepSeek({
     messages,
     temperature,
     response_format: jsonMode ? { type: 'json_object' } : undefined,
-    max_tokens: 1500,
+    max_tokens: maxTokens,
   });
   
   const content = response.choices[0].message.content;
