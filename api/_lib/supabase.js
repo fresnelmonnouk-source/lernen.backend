@@ -86,9 +86,9 @@ export async function requireAuth(req, res) {
   const { user, reason } = await verifyUser(req);
 
   if (!user) {
+    // Le motif reste loggé côté serveur (jamais exposé au client).
     console.error('[requireAuth] 401 denied — reason:', reason);
-    // _diag : champ de diagnostic TEMPORAIRE — à RETIRER une fois le 401 résolu.
-    res.status(401).json({ error: 'Authentification requise', _diag: reason });
+    res.status(401).json({ error: 'Authentification requise' });
     return null;
   }
 
