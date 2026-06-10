@@ -29,6 +29,7 @@ RÈGLES STRICTES :
 5. isIrregular = true pour les verbes forts (changement de voyelle au radical).
 6. auxiliary = "haben" ou "sein" pour le Perfekt.
 7. notes = explication brève en français des particularités (max 100 mots).
+8. COHÉRENCE OBLIGATOIRE : les notes ne décrivent QUE les formes du temps demandé. Ne mentionne un changement de voyelle au radical que s'il est RÉELLEMENT visible dans les formes que tu viens de générer pour CE temps précis. Au Präsens, certains verbes forts changent (geben → du gibst, er gibt ; fahren → du fährst) mais beaucoup NE changent PAS (gehen → du gehst, er geht ; kommen → du kommst). Ne reporte jamais un changement propre au Präteritum/Perfekt (ex. geh→ging) sur le Präsens. Si aucune particularité n'existe pour le temps demandé, dis-le simplement.
 
 EXEMPLE de réponse pour "gehen" au Präteritum :
 {
@@ -45,7 +46,7 @@ EXEMPLE de réponse pour "gehen" au Präteritum :
   "isIrregular": true,
   "auxiliary": "sein",
   "separable": false,
-  "notes": "Verbe fort. Changement de voyelle e→i. Auxiliaire sein car verbe de mouvement."
+  "notes": "Verbe fort : radical 'ging' au Präteritum (geh → ging). Auxiliaire sein car verbe de mouvement. Au Präsens, aucun changement de voyelle (du gehst, er geht)."
 }`;
 
 export default async function handler(req, res) {
