@@ -25,8 +25,8 @@ const FORMAT_SPECS = {
     sections: 2,
     examples_per_section: 2,
     key_points: 3,
-    exam_questions: 3,
-    max_tokens: 2500,
+    exam_questions: 5,
+    max_tokens: 3000,
     description: 'Cours court et focalisé sur l\'essentiel'
   },
   standard: {
