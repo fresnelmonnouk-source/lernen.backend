@@ -5,7 +5,7 @@
 //   domain: "vocabulary" | "grammar" | "spelling" | "conjugation",
 //   level: "A1" | "A2" | "B1" | "B2",
 //   difficulty: "easy" | "medium" | "hard",
-//   questionCount: 5-30
+//   questionCount: 10-30
 // }
 
 import { askDeepSeek, checkRateLimit, getClientIp, handleCors } from './_lib/deepseek.js';
@@ -116,7 +116,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Difficulté invalide', validDifficulties: VALID_DIFFICULTIES });
     }
     const count = parseInt(questionCount);
-    if (!count || count < 5 || count > 30) {
+    if (!count || count < 10 || count > 30) {
       return res.status(400).json({ error: 'Nombre de questions invalide (5-30)' });
     }
 
